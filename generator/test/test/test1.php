@@ -11,7 +11,7 @@ class test1{
 	private function method() : test{
 		return new test;
 	}
-	private function method1() : test{
+	private function method1() : test3{
 		return new test3;
 	}
 }

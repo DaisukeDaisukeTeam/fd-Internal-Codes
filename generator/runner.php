@@ -32,7 +32,7 @@ class test1
     private function method() : test
     {
     }
-    private function method1() : test
+    private function method1() : test3
     {
     }
 }
