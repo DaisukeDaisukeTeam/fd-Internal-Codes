@@ -1,0 +1,12 @@
+{
+    "name": "fallendeadnetwork/fd-internal-codes",
+    "license": "unlicense",
+    "autoload": {
+        "psr-4": {
+            "Fallendeadnetwork\\Generator\\": "generator/src/"
+        }
+    },
+    "require": {
+        "nikic/php-parser": "^4.12"
+    }
+}
