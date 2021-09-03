@@ -67,28 +67,6 @@ class main{
 		$traverser->addVisitor(new TestVisitor());
 		$traverser->addVisitor($this->namespaceVisitor);
 		$stmts = $traverser->traverse($stmts);
-
-		//$use = [];
-
-		/*foreach($stmts as $stmt){
-			if($stmt instanceof Namespace_){
-				$namespace = implode(",", $stmt->name->parts);
-				foreach($stmt->stmts as $stmt1){
-					if($stmt1 instanceof Use_){
-						foreach($stmt1->uses as $useuse){
-							$use[implode(",", $useuse->name->parts)] = $stmt1;
-						}
-						//var_dump($stmt1);
-
-					}elseif($stmt1 instanceof Class_){
-						foreach($stmt1->stmts as $stmts2){
-
-						}
-					}
-				}
-			}
-		}*/
-		//var_dump($use);
 	}
 
 	public function writeResults(string $outputdir) : self{
@@ -111,13 +89,6 @@ class main{
 		foreach($result as $name => $new_stmts){
 			$prettyPrinter = new Standard();
 			$code = $prettyPrinter->prettyPrintFile([$new_stmts]);
-
-
-			//substr(strpos($name, "\\"),);
-			/*if($strstr !== false){
-				$strstr
-			}*/
-			//file_put_contents($outputdir.str_replace("\\","",strrchr($name, "\\")).".php", $code);
 
 			$output = $outputdir.str_replace("\\", DIRECTORY_SEPARATOR, $name).".php";
 

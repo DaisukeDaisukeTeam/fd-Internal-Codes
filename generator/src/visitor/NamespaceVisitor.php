@@ -25,7 +25,6 @@ class NamespaceVisitor extends NodeVisitorAbstract{
 					foreach($stmt->uses as $use){
 						$alias = null;
 						$array = $use->name->parts;
-						//($array[array_key_last($array)]);
 						$name1 = implode("\\", $array);
 						if($use->alias !== null){
 							$alias = $use->alias;
@@ -38,8 +37,6 @@ class NamespaceVisitor extends NodeVisitorAbstract{
 						}
 						$this->use[$name][$alias ?? $name1] = $stmt;
 					}
-					//var_dump($this->use);
-					//}elseif($stmt instanceof Class_||$stmt instanceof Trait_||$stmt instanceof Interface_){
 				}elseif($stmt instanceof ClassLike){
 					$this->class[$name][] = [$node->name, $stmt];
 				}
