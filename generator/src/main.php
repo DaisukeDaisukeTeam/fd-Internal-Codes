@@ -64,7 +64,6 @@ class main{
 		echo $dumper->dump($stmts, file_get_contents($path));*/
 
 		$traverser = new NodeTraverser;
-		$traverser->addVisitor(new TestVisitor());
 		$traverser->addVisitor($this->namespaceVisitor);
 		$stmts = $traverser->traverse($stmts);
 	}

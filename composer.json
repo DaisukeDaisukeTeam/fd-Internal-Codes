@@ -3,11 +3,12 @@
     "license": "unlicense",
     "autoload": {
         "psr-4": {
-            "Fallendeadnetwork\\Generator\\": "generator/src/"
+            "Fallendeadnetwork\\Generator\\": "generator/src/",
+            "Fallendeadnetwork\\refactor\\": "fd-internal-refactor/src/"
         }
     },
     "require": {
-        "php": "^7.4|8.*",
+        "php": "8.*",
         "nikic/php-parser": "^4.12"
     }
 }
