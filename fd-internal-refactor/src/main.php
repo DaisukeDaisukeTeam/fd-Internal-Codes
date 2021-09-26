@@ -5,6 +5,8 @@ namespace Fallendeadnetwork\refactor;
 include_once __DIR__."/../../vendor/autoload.php";
 
 use Fallendeadnetwork\Generator\visitor\TestVisitor;
+use Fallendeadnetwork\refactor\visitor\ClassConstFetchVisitor;
+use Fallendeadnetwork\refactor\visitor\ClassVisitor;
 use Fallendeadnetwork\refactor\visitor\DocVisitor;
 use Fallendeadnetwork\refactor\visitor\methodCallVisitor;
 use Fallendeadnetwork\refactor\visitor\methodVisitor;
@@ -86,7 +88,10 @@ class main{
 		//$traverser->addVisitor(new DocVisitor());
 		$traverser->addVisitor(new methodCallVisitor());
 		$traverser->addVisitor(new methodVisitor());
+		$traverser->addVisitor(new ClassVisitor());
+		$traverser->addVisitor(new ClassConstFetchVisitor());
 		$traverser->addVisitor(new NameVisitor());
+
 
 		$stmts = $traverser->traverse($stmts);
 		$prettyPrinter = new Standard();
@@ -105,7 +110,7 @@ class main{
 				0 => " World",
 				1 => "?World",
 				2 => "|World",
-				3 => "pocketmine\\network\\mcpe\\protocol\\types\\entity\\DataPropertyManager,",
+				3 => "\\pocketmine\\network\\mcpe\\protocol\\types\\entity\\DataPropertyManager,",
 			], $target);
 			if($target !== $result){
 				$code = str_replace($target, $result, $code);
